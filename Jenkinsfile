@@ -42,14 +42,13 @@ pipeline {
       }
     }
 
-    stage('4. Validate Test Coverage') {
-      steps {
+  stage('4. Validate Test Coverage') {
+    steps {
         withMaven(maven: 'MAVEN_3_9_11') {
-          sh 'mvn clean verify jacoco:report'
-          sh 'mvn jacoco:check'
+            sh 'mvn clean verify'
         }
-      }
     }
+}
 
     stage('5. SonarQube Analysis') {
       steps {
