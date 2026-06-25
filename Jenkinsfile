@@ -8,7 +8,7 @@ pipeline {
 
   environment {
     // CAMBIAR EN EL EXAMEN: coloca tu usuario real de Docker Hub.
-    REGISTRY_USER = "Marckszzz"
+    REGISTRY_USER = "marckszzz"
 
     // Nombre de la imagen de la aplicacion.
     IMAGE_NAME = "support-ticket-api"
