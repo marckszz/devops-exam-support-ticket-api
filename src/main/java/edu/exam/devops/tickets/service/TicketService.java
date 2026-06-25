@@ -18,12 +18,34 @@ public class TicketService {
 
     private final List<Ticket> tickets = new ArrayList<>();
     private final AtomicLong sequence = new AtomicLong(1);
+public TicketService() {
+    tickets.add(new Ticket(
+            sequence.getAndIncrement(),
+            "Ingenio Learning",
+            "No puedo acceder al campus virtual",
+            Priority.HIGH,
+            TicketStatus.OPEN,
+            LocalDateTime.now()
+    ));
 
-    public TicketService() {
-        tickets.add(new Ticket(sequence.getAndIncrement(), "Ingenio Learning", "No puedo acceder al campus virtual", Priority.HIGH, TicketStatus.OPEN, LocalDateTime.now()));
-        tickets.add(new Ticket(sequence.getAndIncrement(), "Colegio San Juan", "Solicitud de cambio de horario", Priority.MEDIUM, TicketStatus.IN_PROGRESS, LocalDateTime.now()));
-        tickets.add(new Ticket(sequence.getAndIncrement(), "Cliente Demo", "Consulta sobre certificado", Priority.LOW, TicketStatus.RESOLVED, LocalDateTime.now()));
-    }
+    tickets.add(new Ticket(
+            sequence.getAndIncrement(),
+            "Colegio San Juan",
+            "Solicitud de cambio de horario",
+            Priority.MEDIUM,
+            TicketStatus.IN_PROGRESS,
+            LocalDateTime.now()
+    ));
+
+    tickets.add(new Ticket(
+            sequence.getAndIncrement(),
+            "Cliente Demo",
+            "Consulta sobre certificado",
+            Priority.LOW,
+            TicketStatus.RESOLVED,
+            LocalDateTime.now()
+    ));
+}
 
     public List<Ticket> findAll() {
         return List.copyOf(tickets);
